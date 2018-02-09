@@ -1,7 +1,7 @@
 <html>
 <head>
     @section('head')
-        <title>@yield('title') || ModernForm</title>
+        <title>@yield('title') || Vintage API</title>
     @show
 </head>
 <body>
