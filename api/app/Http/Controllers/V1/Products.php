@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\V1;
 
-use Laravel\Lumen\Routing\Controller as BaseController;
+use App\Http\Controllers\Controller;
 
-/**
- * Class Controller
- *
- * @package App\Http\Controllers
- */
-abstract class Controller extends BaseController
+class Products extends Controller
 {
+
     /**
      * Get a single item
      *
@@ -18,7 +14,10 @@ abstract class Controller extends BaseController
      *
      * @return mixed
      */
-    abstract function get($id = 0);
+    function get($id = 0)
+    {
+        // TODO: Implement get() method.
+    }
 
     /**
      * Get multiple items
@@ -28,7 +27,10 @@ abstract class Controller extends BaseController
      *
      * @return mixed
      */
-    abstract function all($limit, $page);
+    function all($limit, $page)
+    {
+        // TODO: Implement all() method.
+    }
 
     /**
      * Add a new item
@@ -37,7 +39,10 @@ abstract class Controller extends BaseController
      *
      * @return mixed
      */
-    abstract function add($data = []);
+    function add($data = [])
+    {
+        // TODO: Implement add() method.
+    }
 
     /**
      * Update en aisling item
@@ -47,7 +52,10 @@ abstract class Controller extends BaseController
      *
      * @return mixed
      */
-    abstract function update($id = 0, $data = []);
+    function update($id = 0, $data = [])
+    {
+        // TODO: Implement update() method.
+    }
 
     /**
      * Delete an item
@@ -56,5 +64,8 @@ abstract class Controller extends BaseController
      *
      * @return mixed
      */
-    abstract function delete($id = 0);
+    function delete($id = 0)
+    {
+        // TODO: Implement delete() method.
+    }
 }

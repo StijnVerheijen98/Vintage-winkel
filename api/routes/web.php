@@ -14,7 +14,7 @@
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return view('test', ['version' => $router->app->version()]);
 });
 
 // API Versioning, V1
