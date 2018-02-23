@@ -11,9 +11,14 @@
 |
 */
 
-/** @var \Laravel\Lumen\Routing\Router $router */
+/**
+ * Web routes
+ * @var \Laravel\Lumen\Routing\Router $router
+ */
 
 $router->get('/', function () use ($router) {
-    return view('test', ['version' => $router->app->version()]);
+    return view('version', [
+        'version' => $router->app->version(),
+    ]);
 });
 

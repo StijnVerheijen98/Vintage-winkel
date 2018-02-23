@@ -2,6 +2,7 @@
 <head>
     @section('head')
         <title>@yield('title') || Vintage API</title>
+        <style></style>
     @show
 </head>
 <body>

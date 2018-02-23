@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Models\Product;
+use Carbon\Carbon;
 
 class Products extends Controller
 {
@@ -67,5 +69,21 @@ class Products extends Controller
     function delete($id = 0)
     {
         // TODO: Implement delete() method.
+    }
+
+    function createProductByArray($data = [])
+    {
+        return new Product(
+            $data['id'],
+            $data['name'],
+            $data['short_description'],
+            $data['full_description'],
+            $data['images'],
+            $data['quantity'],
+            $data['price'],
+            Carbon::parse($data['created_at']),
+            Carbon::parse($data['updated_at']),
+            Carbon::parse($data['deleted_at'])
+        );
     }
 }

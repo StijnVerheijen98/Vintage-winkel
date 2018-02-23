@@ -38,6 +38,8 @@ abstract class Controller extends BaseController
      *
      * @return true
      */
+
+
     abstract function add($data = []);
 
     /**
