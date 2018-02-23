@@ -31,6 +31,4 @@ class Repository
             []  // queries to execute after connection
         );
     }
-
-    abstract function get($id = 0);
 }

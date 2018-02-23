@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Support\Collection;
 
 /**
  * Class Controller
@@ -16,26 +17,26 @@ abstract class Controller extends BaseController
      *
      * @param int $id
      *
-     * @return mixed
+     * @return Collection;
      */
     abstract function get($id = 0);
 
+
     /**
-     * Get multiple items
+     * @param int   $limit
+     * @param int   $page
+     * @param array $filters
      *
-     * @param $limit
-     * @param $page
-     *
-     * @return mixed
+     * @return Collection;
      */
-    abstract function all($limit, $page);
+    abstract function all($limit = 0, $page = 0, $filters = []);
 
     /**
      * Add a new item
      *
      * @param array $data
      *
-     * @return mixed
+     * @return true
      */
     abstract function add($data = []);
 
@@ -45,7 +46,7 @@ abstract class Controller extends BaseController
      * @param int   $id
      * @param array $data
      *
-     * @return mixed
+     * @return Collection;
      */
     abstract function update($id = 0, $data = []);
 
@@ -54,7 +55,7 @@ abstract class Controller extends BaseController
      *
      * @param int $id
      *
-     * @return mixed
+     * @return bool
      */
     abstract function delete($id = 0);
 }
