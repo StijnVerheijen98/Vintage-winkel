@@ -1,7 +1,17 @@
 @extends('common.basePage')
 
-@section('title', 'home page title')
+@section('title', 'Simple page')
 @section('currPage', 'home')
+
+@section('head')
+    @parent
+    <style>
+        html, body {
+            color      : #ccc;
+            background : #424242
+        }
+    </style>
+@show
 
 @section('content')
     <h3>Page content</h3>

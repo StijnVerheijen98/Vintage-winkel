@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    @section('title', 'Custom page')
     @include('common.head')
 </head>
 <body>
