@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    @section('head')
+        @include('common.head')
+        <style>
+            html, body {background : #424242}
+        </style>
+    @show
+</head>
+<body>
+<header>
+    @section('header')
+        @include('common.header')
+    @show
+    <nav>
+        @section('navigation')
+            @include('common.navigation')
+        @show
+    </nav>
+</header>
+<main>
+    @yield('content')
+</main>
+<footer>
+    @section('footer')
+        @include('common.footer')
+    @show
+</footer>
+</body>
+</html>

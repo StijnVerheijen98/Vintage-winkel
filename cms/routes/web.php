@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'example'], function (){
+	Route::get('/home', function(){
+		return view('examples/home');
+	});
+
+	Route::get('/simple', function(){
+		return view('examples/simple');
+	});
+
+	Route::get('custom', function() {
+		return view('examples/custom');
+	});
+});
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
