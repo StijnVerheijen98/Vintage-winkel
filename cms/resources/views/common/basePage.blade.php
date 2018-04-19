@@ -3,9 +3,6 @@
 <head>
     @section('head')
         @include('common.head')
-        <style>
-            html, body {background : #424242}
-        </style>
     @show
 </head>
 <body>

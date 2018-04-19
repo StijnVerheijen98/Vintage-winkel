@@ -15,7 +15,6 @@
 
 @section('navigation')
     @parent
-
     <p>This is appended to the menu.</p>
 @endsection
 

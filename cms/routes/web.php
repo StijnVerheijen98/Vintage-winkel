@@ -29,6 +29,10 @@ Route::group(['prefix' => 'example'], function (){
 	});
 });
 
+Route::group(['prefix' => 'user'], function (){
+	Route::get('/add', 'User@add');
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
