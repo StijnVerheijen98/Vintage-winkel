@@ -1,29 +1,15 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Traits\CRUD;
+
 class User extends Controller {
-	public function get(  ) {
-
-	}
-
-	public function all(  ) {
-
-	}
-
-	public function add(  ) {
-
-	}
-
-	public function update(  ) {
-
-	}
-
-	public function delete(  ) {
-
-	}
+	const MODEL = \App\User::class;
+	use CRUD;
 
 	/* Pages */
 
 	public function addUser(  ) {
 
+		return view('user\add');
 	}
 }
