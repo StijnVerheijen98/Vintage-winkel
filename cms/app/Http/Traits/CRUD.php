@@ -1,10 +1,9 @@
 <?php namespace App\Http\Traits;
 
-use Illuminate\Http\Response;
-use Illuminate\Http\Request;
-
 /**
  * Trait CRUD
+ * Contains default `all`, `get`, `add`, `update` and `delete` commands.
+ * Set `const MODEL` to the model class string before loading. This does not work with multiple models.
  *
  * @package App\Http\Traits
  */
@@ -12,50 +11,45 @@ trait CRUD {
 	public function all() {
 		$m = self::MODEL;
 
-		return $this->respond( Response::HTTP_OK, $m::all() );
+		return $m::all();
 	}
 
-	public function get( $id ) {
+	public function get($id) {
 		$m     = self::MODEL;
-		$model = $m::find( $id );
-		if ( is_null( $model ) ) {
-			return $this->respond( Response::HTTP_NOT_FOUND );
+		$model = $m::find($id);
+		if (is_null($model)) {
+			return null;
 		}
 
-		return $this->respond( Response::HTTP_OK, $model );
+		return $model;
 	}
 
-	public function add( Request $request ) {
+	public function add($data = []) {
 		$m = self::MODEL;
-		$this->validate( $request, $m::$rules );
+		$this->validate($data, $m::$rules);
 
-		return $this->respond( Response::HTTP_CREATED, $m::create( $request->all() ) );
+		return $m::create($data);
 	}
 
-	public function put( Request $request, $id ) {
+	public function put($data = [], $id) {
 		$m = self::MODEL;
-		$this->validate( $request, $m::$rules );
-		$model = $m::find( $id );
-		if ( is_null( $model ) ) {
-			return $this->respond( Response::HTTP_NOT_FOUND );
+		$this->validate($data, $m::$rules);
+		$model = $m::find($id);
+		if (is_null($model)) {
+			return null;
 		}
-		$model->update( $request->all() );
+		$model->update($data);
 
-		return $this->respond( Response::HTTP_OK, $model );
+		return $model;
 	}
 
-	public function remove( $id ) {
+	public function remove($id) {
 		$m = self::MODEL;
-		if ( is_null( $m::find( $id ) ) ) {
-			return $this->respond( Response::HTTP_NOT_FOUND );
+		if (is_null($m::find($id))) {
+			return null;
 		}
-		$m::destroy( $id );
+		$m::destroy($id);
 
-		return $this->respond( Response::HTTP_NO_CONTENT );
+		return true;
 	}
-
-	protected function respond( $status, $data = [] ) {
-		return response()->json( $data, $status );
-	}
-
 }

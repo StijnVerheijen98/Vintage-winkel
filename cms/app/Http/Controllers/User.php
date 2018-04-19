@@ -8,7 +8,7 @@ class User extends Controller {
 
 	/* Pages */
 
-	public function addUser(  ) {
+	public function addUser() {
 
 		return view('user\add');
 	}
