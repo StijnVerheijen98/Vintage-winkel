@@ -1,6 +1,7 @@
 <?php namespace App\Http\Traits;
 
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 /**
  * Trait CRUD
