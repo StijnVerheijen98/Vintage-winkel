@@ -1,5 +1,7 @@
 <?php namespace App\Http\Traits;
 
+use Illuminate\Http\Request;
+
 /**
  * Trait CRUD
  * Contains default `all`, `get`, `add`, `update` and `delete` commands.
@@ -24,21 +26,23 @@ trait CRUD {
 		return $model;
 	}
 
-	public function add($data = []) {
+	public function add(Request $request) {
 		$m = self::MODEL;
-		$this->validate($data, $m::$rules);
+		$result = $this->validate($request, $m::$rules);
 
-		return $m::create($data);
+		echo '<pre>' . print_r($result, true) . '</pre>';die();
+
+		return $m::create($request->all());
 	}
 
-	public function put($data = [], $id) {
+	public function put(Request $request, $id) {
 		$m = self::MODEL;
-		$this->validate($data, $m::$rules);
+		$this->validate($request, $m::$rules);
 		$model = $m::find($id);
 		if (is_null($model)) {
 			return null;
 		}
-		$model->update($data);
+		$model->update($request->all());
 
 		return $model;
 	}

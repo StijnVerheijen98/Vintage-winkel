@@ -39,4 +39,19 @@ class User extends \TCG\Voyager\Models\User {
 		'password',
 		'remember_token',
 	];
+
+	static $rules = [
+		'name'         => 'required',
+		'middle_name'  => '',
+		'last_name'    => 'required',
+		'gender'       => 'required',
+		'email'        => 'required',
+		'password'     => 'required',
+		'street'       => 'required',
+		'street2'      => '',
+		'house_number' => 'required',
+		'zip'          => 'required',
+		'city'         => 'required',
+		'country'      => 'required',
+	];
 }

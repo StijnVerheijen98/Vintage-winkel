@@ -31,7 +31,7 @@ Route::group(['prefix' => 'example'], function () {
 
 Route::group(['prefix' => 'user'], function () {
 	Route::get('/', 'User@all');
-	Route::get('/add', 'User@add');
+	Route::get('/add', 'User@addUser');
 });
 
 Route::group(['prefix' => 'admin'], function () {
