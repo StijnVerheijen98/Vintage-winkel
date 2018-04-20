@@ -31,6 +31,7 @@ Route::group(['prefix' => 'example'], function () {
 
 Route::group(['prefix' => 'user'], function () {
 	Route::get('/', 'User@all');
+	Route::get('/{id}', 'User@get')->where('id', '[0-9]+');
 	Route::get('/add', 'User@addUser');
 });
 
