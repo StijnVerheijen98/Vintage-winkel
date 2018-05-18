@@ -38,3 +38,5 @@ Route::group(['prefix' => 'user'], function () {
 Route::group(['prefix' => 'admin'], function () {
 	Voyager::routes();
 });
+
+Route::get('/{slug}', 'PageController@getPage');
